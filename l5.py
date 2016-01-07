@@ -1,15 +1,15 @@
 # O(n)
 def longest(s):
 	pre = "#" + '#'.join(list(s)) + "#"
-		c, r, p = 0, 0, []
-		for i, char in enumerate(pre):
-			p.append(min(r-i, p[2*c-i])) if r > i else p.append(0)
-			while i - p[i]-1 >= 0 and (i+p[i]+1) < len(pre) and pre[i-p[i]-1] == pre[i+p[i]+1]:
-				p[i] += 1
-			if i + p[i] > r:
-				c, r = i, i + p[i]
-		# max(p) is the length of the longest palindrome
-		return ''.join([x for x in pre[p.index(max(p))-max(p) : p.index(max(p))+max(p)+1] if x != '#'])
+	c, r, p = 0, 0, []
+	for i, char in enumerate(pre):
+		p.append(min(r-i, p[2*c-i])) if r > i else p.append(0)
+		while i - p[i]-1 >= 0 and (i+p[i]+1) < len(pre) and pre[i-p[i]-1] == pre[i+p[i]+1]:
+			p[i] += 1
+		if i + p[i] > r:
+			c, r = i, i + p[i]
+	# max(p) is the length of the longest palindrome
+	return ''.join([x for x in pre[p.index(max(p))-max(p) : p.index(max(p))+max(p)+1] if x != '#'])
 
 
 
