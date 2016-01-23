@@ -1,9 +1,11 @@
+# med(m, n) gives the median of the two sorted input array m and n.
 def med(m, n):
 	l = len(m) + len(n)
 	if l % 2 == 0:
 		return (get(m, n, l//2) + get(m, n, l//2+1)) / 2
 	return get(m, n, l - l//2)
 
+# get(m, n, k): the helper function which return the kth smallest number in the sorted input array m and n.
 def get(m, n, k):
 	if k != int(k):
 		return -1
