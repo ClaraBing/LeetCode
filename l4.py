@@ -5,7 +5,7 @@ def med(m, n):
 		return (get(m, n, l//2) + get(m, n, l//2+1)) / 2
 	return get(m, n, l - l//2)
 
-# get(m, n, k): the helper function which return the kth smallest number in the sorted input array m and n.
+# get(m, n, k): the helper function which returns the kth smallest number in the sorted input array m and n.
 def get(m, n, k):
 	if k != int(k):
 		return -1
