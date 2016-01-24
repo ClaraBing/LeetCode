@@ -15,3 +15,15 @@ def maxArea(self, lst):
 		if min(lst[l], lst[r]) * (r-l) > val:
 			pair, val = (l, r), min(lst[l], lst[r]) * (r-l)
 	return val
+
+# time limit exceeded
+def a(lst):
+	t = {}
+	def h(l, r):
+		if (l, r) in t:
+			return t[(l,r)]
+		if l >= r:
+			return 0
+		t[(l, r)] = max(min(lst[l], lst[r]) * (r - l), h(l+1, r), h(l, r-1))
+		return t[(l,r)]
+	return h(0, len(lst)-1)
